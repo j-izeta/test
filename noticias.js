@@ -14,7 +14,20 @@ const translateLabel = {
 }
 
 const translateDropdown = ` 
-
+<div class="tk-itzuli">
+    <div class="trebeDropdown">
+        <button id="itzuliButton" class="translate" onclick="translatePage()">${translateLabel[sourceLanguage]}</button>
+        <button onclick="trebeDropdownFunction()" class="dropbtn"></button>
+        <div id="trebeDropdownContent" class="dropdown-content">
+            <a href="#" onclick="languageSelector(this)" id="es" class="">Español</a>
+            <a href="#" onclick="languageSelector(this)" id="eu" class="">Euskara</a>
+            <a href="#" onclick="languageSelector(this)" id="en" class="">English</a>
+            <a href="#" onclick="languageSelector(this)" id="fr" class="">Français</a>
+            <a href="#" onclick="languageSelector(this)" id="ca" class="">Català</a>
+            <a href="#" onclick="languageSelector(this)" id="gl" class="">Galego</a>
+        </div>
+    </div>
+</div>
 <div class="tk-entzun">
     <div class="elhuyarDropdown">
     <button id="playerIndicator" class="play" onclick="handleAudioStream()">
