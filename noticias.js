@@ -13,13 +13,23 @@ const translateLabel = {
     "ga": "Traducir",
 }
 
+const translateDropdown = ` 
 
+<div class="tk-entzun">
+    <div class="elhuyarDropdown">
+    <button id="playerIndicator" class="play" onclick="handleAudioStream()">
+        Entzun
+        <span id="playerIndicator" class="playbotoia play" accesskey="p" title="Entzun (Alt+Shift+P)"></span>
+    </button>
+    </div>
+</div>
+`;
 
 switch (document.location.origin) {
 
     case "https://www.noticiasdegipuzkoa.eus":
         console.log("https://www.noticiasdegipuzkoa.eus");
-        // document.querySelector(".rrss--").insertAdjacentHTML('beforeend', translateDropdown);
+        document.querySelector(".rrss--").insertAdjacentHTML('beforeend', translateDropdown);
         translationElementSelectors = [
             { selector: ".headline-article" },
             {
