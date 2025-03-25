@@ -122,8 +122,8 @@ const translatePageContent = async (targetLanguage) => {
 
     try {
 
-        // const response = await fetch("https://toolbar-backend.trebesrv.com/translate", {
-        const response = await fetch("http://localhost:8080/translate", {
+        const response = await fetch("https://toolbar-backend.trebesrv.com/translate", {
+        // const response = await fetch("http://localhost:8080/translate", {
             method: "POST",
             body: JSON.stringify({
                 url: location.protocol + '//' + location.host + location.pathname,
