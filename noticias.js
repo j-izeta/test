@@ -1,5 +1,3 @@
-console.log("SCRIPT LOADED")
-
 let translationElementSelectors;
 let sourceLanguage = document.querySelector("html").lang;
 let targetLanguage;
@@ -14,26 +12,21 @@ const translateLabel = {
 }
 
 const translateDropdown = ` 
-<div class="tk-itzuli">
-    <div class="trebeDropdown">
-        <button id="itzuliButton" class="translate" onclick="translatePage()">${translateLabel[sourceLanguage]}</button>
-        <button onclick="trebeDropdownFunction()" class="dropbtn"></button>
-        <div id="trebeDropdownContent" class="dropdown-content">
-            <a href="#" onclick="languageSelector(this)" id="es" class="">Español</a>
-            <a href="#" onclick="languageSelector(this)" id="eu" class="">Euskara</a>
-            <a href="#" onclick="languageSelector(this)" id="en" class="">English</a>
-            <a href="#" onclick="languageSelector(this)" id="fr" class="">Français</a>
-            <a href="#" onclick="languageSelector(this)" id="ca" class="">Català</a>
-            <a href="#" onclick="languageSelector(this)" id="gl" class="">Galego</a>
+
+<div style="display:flex; gap: 10px; margin-top: 10px;">
+    <div class="trebe-btn-div">
+        <div class="trebeDropdown">
+            <button id="itzuliButton" onclick="translatePage()">${translateLabel[sourceLanguage]}</button>
+            <button onclick="trebeDropdownFunction()" class="dropbtn"></button>
+            <div id="trebeDropdownContent" class="dropdown-content">
+                <li onclick="languageSelector(this)" id="es" class="">Español</a>
+                <li onclick="languageSelector(this)" id="eu" class="">Euskara</a>
+                <li onclick="languageSelector(this)" id="en" class="">English</a>
+                <li onclick="languageSelector(this)" id="fr" class="">Français</a>
+                <li onclick="languageSelector(this)" id="ca" class="">Català</a>
+                <li onclick="languageSelector(this)" id="gl" class="">Galego</a>
+            </div>
         </div>
-    </div>
-</div>
-<div class="tk-entzun">
-    <div class="elhuyarDropdown">
-    <button id="playerIndicator" class="play" onclick="handleAudioStream()">
-        Entzun
-        <span id="playerIndicator" class="playbotoia play" accesskey="p" title="Entzun (Alt+Shift+P)"></span>
-    </button>
     </div>
 </div>
 `;
@@ -123,7 +116,6 @@ const translatePageContent = async (targetLanguage) => {
     try {
 
         const response = await fetch("https://toolbar-backend.trebesrv.com/translate", {
-        // const response = await fetch("http://localhost:8080/translate", {
             method: "POST",
             body: JSON.stringify({
                 url: location.protocol + '//' + location.host + location.pathname,
@@ -332,12 +324,12 @@ style.innerHTML = `
     color: #b6c2cd !important;
 }
 
-.dropdown-content a[disabled] {
+.dropdown-content li[disabled] {
     color: #9eb1c3 !important;
 }   
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:not([disabled]):hover {
+.dropdown-content li:not([disabled]):hover {
     background-color: #e9ecef;
 }
 
@@ -358,7 +350,7 @@ style.innerHTML = `
 }
 
 /* Links inside the dropdown */
-.dropdown-content a,
+.dropdown-content li,
 .dropdown-content span {
   color: #343a40 !important;
   padding: 5px 10px;
@@ -374,14 +366,14 @@ style.innerHTML = `
   display: block;
 }
 
-.tk-itzuli,
-.tk-itzuli > div {
+.trebe-btn-div,
+.trebe-btn-div > div {
   display: inline;
   position: relative;
   cursor: pointer;
 }
   
-.tk-itzuli button {
+.trebe-btn-div button {
   border: none;
   padding: 0px 5px;
   box-shadow: 0;
@@ -415,7 +407,7 @@ style.innerHTML = `
   border-left: 0.4em solid transparent;
 }
 
-.tk-itzuli {
+.trebe-btn-div {
   border: 1px solid #e9ecef;
   border-radius: 6px;
   padding: 5px;
@@ -426,50 +418,17 @@ style.innerHTML = `
   color: #343a40;
 }
 
-.tk-itzuli .dropbtn::after {
+.trebe-btn-div .dropbtn::after {
   top: 6px;
   right: 5px;
 }
 
-.tk-itzuli .dropdown-content {
+.trebe-btn-div .dropdown-content {
   right: 0;
   min-width: 50px;
 }
-  
-a.deskargatu::before {
-  content: '';
-  background: url(/static/img/tts/i_download.svg) no-repeat 0 5px;
-  display: inline-block;
-  height: 20px;
-  width: 22px;
-  margin-right: 5px;
-  background-size: 18px;
-}
-  
-a.info::before {
-  content: '';
-  background: url(/static/img/tts/i_info.svg) no-repeat 0 5px;
-  display: inline-block;
-  height: 22px;
-  width: 22px;
-  margin-right: 5px;
-  background-size: 18px;
-}
 
 @media (max-width: 770px) {
-  a.small[title='Download'] {
-    color: #4c545d !important;
-    border: 1px solid #e9ecef;
-    border-radius: 6px;
-    padding: 5px;
-    margin-right: 6px;
-    text-indent: -4000px;
-    display: inline-block;
-    width: 40px;
-    height: 31px;
-    background: url('/static/img/tts/i_download.svg') no-repeat center center;
-    margin-top: 0.5rem;
-  }
   #itzuliButton {
     background: url('/static/img/tts/i_translate.svg') no-repeat top center;
     height: 30px;
