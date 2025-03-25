@@ -1,3 +1,5 @@
+console.log("SCRIPT LOADED")
+
 let translationElementSelectors;
 let sourceLanguage = document.querySelector("html").lang;
 let targetLanguage;
