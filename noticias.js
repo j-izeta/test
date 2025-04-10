@@ -1,3 +1,5 @@
+if (window.dataLayer[0].content.type.cms == "noticia") {
+
 const TREBE_API_URL = "https://toolbar-backend.trebesrv.com" 
 // const TREBE_API_URL = "http://localhost:8080" 
 let translationElementSelectors;
@@ -307,7 +309,7 @@ style.innerHTML = `
     --trebe-dropdown-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     --trebe-btn-padding: 0.5rem;
   }
-   
+    
   /* ---- Toolbar Customization ---- */
 
   .trebeToolbarDiv {
@@ -440,10 +442,12 @@ faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all
 document.head.appendChild(faLink);
 
 
+// -------------------------- // 
+//            TTS             //   
+// -------------------------- // 
 
 
-// ----------- TTS SCRIPT ------------- //
-
+// Audio queue and sequential playback functions
 const audioQueue = [];
 const textQueue = [];
 let selectors;
@@ -797,4 +801,8 @@ function playNext() {
 
 function getLanguageCode() {
   return trebeDropdownContent.querySelector(".selectedLanguage").id;
+}
+  
+} else {
+  console.log("[TREBE] No se va a cargar el sistema de traducción porque la pagina no es una noticia.")
 }
