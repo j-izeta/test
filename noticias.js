@@ -1,5 +1,5 @@
-// const TREBE_API_URL = "https://toolbar-backend.trebesrv.com" 
-const TREBE_API_URL = "http://localhost:8080" 
+const TREBE_API_URL = "https://toolbar-backend.trebesrv.com" 
+// const TREBE_API_URL = "http://localhost:8080" 
 let translationElementSelectors;
 let sourceLanguage = getSiteLang();
 let targetLanguage;
